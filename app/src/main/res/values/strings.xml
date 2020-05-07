@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Movie Search</string>
+    //search
     <string name="search_header">Search down below for movies by title</string>
+    <string name="search_hint">Search for movie</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    // detail view formats
     <string name="year_format">Year of release: %s</string>
     <string name="director_format">Movie director: %s</string>
     <string name="runtime_format">Runtime: %s</string>

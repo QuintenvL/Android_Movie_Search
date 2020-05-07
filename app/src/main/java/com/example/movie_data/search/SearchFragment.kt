@@ -1,5 +1,6 @@
 package com.example.movie_data.search
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,10 +33,17 @@ class SearchFragment : Fragment() {
         val searchViewModel = ViewModelProvider(this, viewFactory).get(SearchViewModel::class.java)
 
 
+        binding.Search.setOnQueryTextListener(this.view?.let {
+            SearchQueryListener(
+                this.context,
+                it
+            )
+        })
+        binding.Search.isSubmitButtonEnabled
 
-        binding.Search.setOnSearchClickListener{ view: View ->
-            view.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToResultListFragment())
-        }
+//        binding.Search.setOnSearchClickListener{ view: View ->
+//            view.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToResultListFragment())
+//        }
         return binding.root
     }
 }
