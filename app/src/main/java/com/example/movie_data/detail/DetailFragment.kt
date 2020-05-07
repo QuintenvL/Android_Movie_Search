@@ -21,6 +21,7 @@ class DetailFragment : Fragment() {
         val binding: DetailViewFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.detail_view_fragment, container, false
         )
+        binding.setLifecycleOwner(this)
 
         val movie = DetailFragmentArgs.fromBundle(arguments!!).movie
 

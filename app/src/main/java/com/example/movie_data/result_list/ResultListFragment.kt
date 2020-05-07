@@ -29,6 +29,7 @@ class ResultListFragment : Fragment() {
         val binding: ListViewFragmentBinding = DataBindingUtil.inflate<ListViewFragmentBinding>(
             inflater, R.layout.list_view_fragment, container, false
         )
+        binding.setLifecycleOwner(this)
 
         val viewModelFactory = ResultListViewModelFactory()
 

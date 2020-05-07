@@ -28,6 +28,8 @@ class SearchFragment : Fragment() {
             false
         )
 
+        binding.setLifecycleOwner(this)
+
         val viewFactory = SearchViewModelFactory()
 
         val searchViewModel = ViewModelProvider(this, viewFactory).get(SearchViewModel::class.java)
