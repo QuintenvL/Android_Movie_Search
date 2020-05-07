@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/resultListFragment">
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.movie_data.search.SearchFragment"
-        android:label="SearchFragment" >
+        android:label="SearchFragment"
+        tools:layout="@layout/search_view_fragment">
         <action
             android:id="@+id/action_searchFragment_to_resultListFragment"
             app:destination="@id/resultListFragment" />
@@ -13,10 +16,8 @@
     <fragment
         android:id="@+id/resultListFragment"
         android:name="com.example.movie_data.result_list.ResultListFragment"
-        android:label="ResultListFragment" >
-        <argument
-            android:name="movieKey"
-            app:argType="string"/>
+        android:label="ResultListFragment"
+        tools:layout="@layout/list_view_fragment">
         <action
             android:id="@+id/action_resultListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -24,9 +25,10 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.movie_data.detail.DetailFragment"
-        android:label="DetailFragment" >
-        <action
-            android:id="@+id/action_detailFragment_to_resultListFragment"
-            app:destination="@id/resultListFragment" />
+        android:label="DetailFragment"
+        tools:layout="@layout/detail_view_fragment">
+        <argument
+            android:name="movie"
+            app:argType="com.example.movie_data.network.MovieProperty" />
     </fragment>
 </navigation>

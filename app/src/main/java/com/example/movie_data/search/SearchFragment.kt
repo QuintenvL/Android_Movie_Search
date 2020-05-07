@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.movie_data.R
 import com.example.movie_data.databinding.SearchViewFragmentBinding
@@ -25,8 +26,15 @@ class SearchFragment : Fragment() {
             container,
             false
         )
+
+        val viewFactory = SearchViewModelFactory()
+
+        val searchViewModel = ViewModelProvider(this, viewFactory).get(SearchViewModel::class.java)
+
+
+
         binding.Search.setOnSearchClickListener{ view: View ->
-            view.findNavController().navigate(R.id.action_searchFragment_to_resultListFragment)
+            view.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToResultListFragment())
         }
         return binding.root
     }

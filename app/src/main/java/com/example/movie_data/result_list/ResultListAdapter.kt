@@ -16,7 +16,7 @@ class ResultListAdapter(val clickListener: ResultListListener) : ListAdapter<Mov
 
     override fun onBindViewHolder(holder: ResultListViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bindValues(clickListener, item)
+        holder.bindValues(clickListener, item!!)
     }
 
 

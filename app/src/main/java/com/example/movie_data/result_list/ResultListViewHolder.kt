@@ -17,6 +17,7 @@ class ResultListViewHolder private constructor(val binding: MovieListItemBinding
         binding.listMovieTitle.text = item.title
         binding.listMovieYear.text = item.year
         binding.listMovieDirector.text = item.director
+        binding.movie = item
         binding.clickListener = clickListener
         binding.executePendingBindings()
     }
