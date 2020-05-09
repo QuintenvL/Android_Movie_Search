@@ -1,16 +1,17 @@
 package com.example.movie_data.network
 
 import android.os.Parcelable
+import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MovieProperty(
-    val id: String,
-    val title: String,
-    val year: String,
-    val director: String,
-    val posterUrl: String,
-    val runTime: String,
-    val genre: String,
-    val plot: String
+    @Json(name = "imdbID") val id: String,
+    @Json(name = "Title") val title: String,
+    @Json(name = "Year") val year: String,
+    @Json(name = "Director") val director: String,
+    @Json(name = "Poster") val posterUrl: String,
+    @Json(name = "Runtime") val runTime: String,
+    @Json(name = "Genre") val genre: String,
+    @Json(name = "Plot") val plot: String
 ) : Parcelable

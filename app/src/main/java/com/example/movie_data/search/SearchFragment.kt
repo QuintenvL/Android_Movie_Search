@@ -34,6 +34,8 @@ class SearchFragment : Fragment() {
 
         val searchViewModel = ViewModelProvider(this, viewFactory).get(SearchViewModel::class.java)
 
+        binding.viewModel = searchViewModel
+
 
         binding.Search.setOnQueryTextListener(this.view?.let {
             SearchQueryListener(
