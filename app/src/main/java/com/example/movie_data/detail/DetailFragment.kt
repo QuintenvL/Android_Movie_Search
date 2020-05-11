@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movie_data.R
 import com.example.movie_data.databinding.DetailViewFragmentBinding
+import com.example.movie_data.properties.MovieProperty
 
 class DetailFragment : Fragment() {
     override fun onCreateView(
