@@ -58,7 +58,7 @@ private var movieList: List<MovieProperty> = listOf<MovieProperty>(
     )
 )
 
-class ResultListViewModel : ViewModel() {
+class ResultListViewModel(searchMovies: List<MovieProperty>) : ViewModel() {
 
     private val _movies = MutableLiveData<List<MovieProperty>>()
     val movies: LiveData<List<MovieProperty>>
@@ -77,6 +77,6 @@ class ResultListViewModel : ViewModel() {
     }
 
     init {
-        _movies.value = movieList
+        _movies.value = searchMovies
     }
 }

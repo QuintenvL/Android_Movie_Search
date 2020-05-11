@@ -31,7 +31,9 @@ class ResultListFragment : Fragment() {
         )
         binding.setLifecycleOwner(this)
 
-        val viewModelFactory = ResultListViewModelFactory()
+        val movies = ResultListFragmentArgs.fromBundle(arguments!!).searchResult
+
+        val viewModelFactory = ResultListViewModelFactory(movies)
 
         val resultListViewModel = ViewModelProvider(this, viewModelFactory).get(ResultListViewModel::class.java)
 

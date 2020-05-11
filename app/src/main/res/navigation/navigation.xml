@@ -18,6 +18,9 @@
         android:name="com.example.movie_data.result_list.ResultListFragment"
         android:label="ResultListFragment"
         tools:layout="@layout/list_view_fragment">
+        <argument
+            android:name="searchResult"
+            app:argType="com.example.movie_data.search.MovieList"/>
         <action
             android:id="@+id/action_resultListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
