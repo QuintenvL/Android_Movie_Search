@@ -1,7 +1,6 @@
 package com.example.movie_data.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movie_data.R
 import com.example.movie_data.databinding.DetailViewFragmentBinding
-import com.example.movie_data.network.MovieProperty
 
 class DetailFragment : Fragment() {
     override fun onCreateView(

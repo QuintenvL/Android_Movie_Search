@@ -1,9 +1,8 @@
 package com.example.movie_data.detail
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.movie_data.network.MovieProperty
+import com.example.movie_data.properties.MovieProperty
 
 class DetailViewModelFactory(
     private val movie: MovieProperty?

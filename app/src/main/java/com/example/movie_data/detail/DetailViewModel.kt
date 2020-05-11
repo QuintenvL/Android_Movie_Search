@@ -3,7 +3,7 @@ package com.example.movie_data.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.movie_data.network.MovieProperty
+import com.example.movie_data.properties.MovieProperty
 
 class DetailViewModel(newMovie: MovieProperty?): ViewModel(){
 

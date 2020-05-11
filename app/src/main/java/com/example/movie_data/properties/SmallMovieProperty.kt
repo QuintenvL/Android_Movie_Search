@@ -1,4 +1,4 @@
-package com.example.movie_data.network
+package com.example.movie_data.properties
 
 import com.squareup.moshi.Json
 

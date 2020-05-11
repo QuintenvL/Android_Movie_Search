@@ -1,11 +1,8 @@
 package com.example.movie_data.result_list
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.example.movie_data.R
-import com.example.movie_data.network.MovieProperty
+import com.example.movie_data.properties.MovieProperty
 
 
 class ResultListAdapter(val clickListener: ResultListListener) : ListAdapter<MovieProperty, ResultListViewHolder>(ResultListDiffCallback()) {
@@ -18,6 +15,7 @@ class ResultListAdapter(val clickListener: ResultListListener) : ListAdapter<Mov
         val item = getItem(position)
         holder.bindValues(clickListener, item!!)
     }
+
 
 
 

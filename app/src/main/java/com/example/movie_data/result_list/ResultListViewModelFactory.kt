@@ -2,7 +2,7 @@ package com.example.movie_data.result_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.movie_data.network.MovieProperty
+import com.example.movie_data.properties.MovieProperty
 
 class ResultListViewModelFactory( private val movies: List<MovieProperty>
 ) : ViewModelProvider.Factory {

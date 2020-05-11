@@ -5,7 +5,7 @@
     <data>
         <variable
             name="movie"
-            type="com.example.movie_data.network.MovieProperty"/>
+            type="com.example.movie_data.properties.MovieProperty"/>
         <variable
             name="clickListener"
             type="com.example.movie_data.result_list.ResultListListener"/>
@@ -20,11 +20,13 @@
         <ImageView
             android:id="@+id/list_poster_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:scaleType="centerInside"
+            app:imageUrl="@{movie.posterUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

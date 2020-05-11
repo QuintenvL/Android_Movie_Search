@@ -1,25 +1,19 @@
 package com.example.movie_data.search
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.movie_data.R
 import com.example.movie_data.databinding.SearchViewFragmentBinding
+import com.example.movie_data.properties.MovieListProperty
 
-/**
- * A simple [Fragment] subclass.
- */
 class SearchFragment : Fragment() {
 
     override fun onCreateView(
@@ -47,13 +41,12 @@ class SearchFragment : Fragment() {
             SearchQueryListener(editText, searchViewModel)
         )
 
-        searchViewModel.ireMovies.observe(this, Observer {
+        searchViewModel.detailedMovies.observe(this, Observer {
             if (it != null) {
-                val movies = MovieList()
+                val movies =
+                    MovieListProperty()
                 searchViewModel.stopOngoingJob()
                 it?.let { movieList ->
-                    Log.i("fetchMovie", "in the observer : ")
-                    Log.i("fetchMovie", movieList.size.toString())
                     movieList.forEach { movie ->
                         movies.add(movie)
                     }
@@ -61,13 +54,11 @@ class SearchFragment : Fragment() {
                 navigate(SearchFragmentDirections.actionSearchFragmentToResultListFragment(movies))
                 searchViewModel.resetFoundMovies()
             }
-
         })
-
         return binding.root
     }
 
-    fun navigate(destination: NavDirections) = with(findNavController()) {
+    private fun navigate(destination: NavDirections) = with(findNavController()) {
         currentDestination?.getAction(destination.actionId)
             ?.let { navigate(destination) }
     }

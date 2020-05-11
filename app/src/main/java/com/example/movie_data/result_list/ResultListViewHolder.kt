@@ -4,9 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movie_data.R
 import com.example.movie_data.databinding.MovieListItemBinding
-import com.example.movie_data.network.MovieProperty
+import com.example.movie_data.properties.MovieProperty
 
 class ResultListViewHolder private constructor(val binding: MovieListItemBinding) :
     RecyclerView.ViewHolder(binding.root) {

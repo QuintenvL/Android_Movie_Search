@@ -1,4 +1,4 @@
-package com.example.movie_data.network
+package com.example.movie_data.properties
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
