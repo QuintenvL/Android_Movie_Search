@@ -9,4 +9,5 @@
     <string name="director_format">Movie director: %s</string>
     <string name="runtime_format">Runtime: %s</string>
     <string name="plot_format">Movie plot: %s</string>
+    <string name="genre_format">Movie genre(s): %s</string>
 </resources>
