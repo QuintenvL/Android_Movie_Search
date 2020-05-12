@@ -43,12 +43,12 @@ class SearchFragment : Fragment() {
 
         searchViewModel.detailedMovies.observe(this, Observer {
             if (it != null) {
-                val movies =
-                    MovieListProperty()
+                val movies = MovieListProperty()
                 searchViewModel.stopOngoingJob()
-                it?.let { movieList ->
-                    movieList.forEach { movie ->
-                        movies.add(movie)
+                it?.let {
+                        movieList ->
+                            movieList.forEach { movie ->
+                                movies.add(movie)
                     }
                 }
                 navigate(SearchFragmentDirections.actionSearchFragmentToResultListFragment(movies))
@@ -59,7 +59,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun navigate(destination: NavDirections) = with(findNavController()) {
-        currentDestination?.getAction(destination.actionId)
+        currentDestination
+            ?.getAction(destination.actionId)
             ?.let { navigate(destination) }
     }
 }

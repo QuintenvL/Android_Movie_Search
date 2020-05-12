@@ -6,6 +6,7 @@ import com.example.movie_data.result_list.ResultListViewModel
 
 class SearchViewModelFactory(
 ) : ViewModelProvider.Factory {
+
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {

@@ -10,7 +10,6 @@ import kotlinx.coroutines.*
 
 class SearchViewModel : ViewModel() {
 
-
     private val _detailedMovies = MutableLiveData<List<MovieProperty>>()
     val detailedMovies: LiveData<List<MovieProperty>>
         get() = _detailedMovies
@@ -23,15 +22,15 @@ class SearchViewModel : ViewModel() {
     val disableSearchButton: LiveData<Boolean>
         get() = _disableSearchButton
 
+
     private val movieRepo = MovieRepository()
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.IO)
-
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, t ->
-
-        _response.postValue("Server issue. Please try again later")
-        _disableSearchButton.postValue(false)
-        viewModelJob.cancel()
+    private val coroutineExceptionHandler = CoroutineExceptionHandler {
+            _, t ->
+                _response.postValue("Server issue. Please try again later")
+                _disableSearchButton.postValue(false)
+                viewModelJob.cancel()
     }
 
     init {
@@ -41,19 +40,23 @@ class SearchViewModel : ViewModel() {
     fun getMovieResults(searchTerm: String) {
 
         val collectedMovies = ArrayList<MovieProperty>()
+
         coroutineScope.launch(coroutineExceptionHandler) {
+            // set the loading text and disable the search button
             _response.postValue("Loading...")
             _disableSearchButton.postValue(true)
+
             val searchResult = async { movieRepo.getMoviesBySearchTerm(searchTerm) }
+
             if (!searchResult.await().response.toBoolean()) {
                 _response.postValue("No movies found")
                 _disableSearchButton.postValue(false)
-                Log.i("Exception", "No movies found")
             } else {
                 async {
-                    searchResult.await().movies?.forEach { smallMovie ->
-                        var movie = async { movieRepo.getDetailsMovieById(smallMovie.id) }
-                        collectedMovies.add(movie.await())
+                    searchResult.await().movies?.forEach {
+                            smallMovie ->
+                                var movie = async { movieRepo.getDetailsMovieById(smallMovie.id) }
+                                collectedMovies.add(movie.await())
                     }
                     _response.postValue("")
                     _disableSearchButton.postValue(false)

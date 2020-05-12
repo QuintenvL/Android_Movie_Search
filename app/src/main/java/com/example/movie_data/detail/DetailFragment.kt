@@ -26,7 +26,8 @@ class DetailFragment : Fragment() {
 
         val viewModelFactory = DetailViewModelFactory(movie)
 
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(DetailViewModel::class.java)
+        val viewModel = ViewModelProvider(this, viewModelFactory)
+                                            .get(DetailViewModel::class.java)
 
         binding.viewModel = viewModel
 

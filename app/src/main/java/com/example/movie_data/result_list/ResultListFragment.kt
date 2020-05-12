@@ -17,8 +17,9 @@ class ResultListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?)
+            : View? {
+
         val binding: ListViewFragmentBinding = DataBindingUtil.inflate<ListViewFragmentBinding>(
             inflater, R.layout.list_view_fragment, container, false
         )
@@ -28,16 +29,20 @@ class ResultListFragment : Fragment() {
 
         val viewModelFactory = ResultListViewModelFactory(movies)
 
-        val resultListViewModel = ViewModelProvider(this, viewModelFactory).get(ResultListViewModel::class.java)
+        val resultListViewModel = ViewModelProvider(this, viewModelFactory)
+                                                        .get(ResultListViewModel::class.java)
 
-        val adapter = ResultListAdapter(ResultListListener { movie ->
-            resultListViewModel.onResultMovieClicked(movie)
+        val adapter = ResultListAdapter(ResultListListener {
+                movie ->
+                    resultListViewModel.onResultMovieClicked(movie)
         })
 
         resultListViewModel.navigateToMoveDetail.observe(this, Observer {
-            movie -> movie?.let{
-            this.findNavController().navigate(ResultListFragmentDirections.actionResultListFragmentToDetailFragment(it))
-            resultListViewModel.onMovieDetailNavigated()
+            movie ->
+                movie?.let{
+                    this.findNavController()
+                        .navigate(ResultListFragmentDirections.actionResultListFragmentToDetailFragment(it))
+                    resultListViewModel.onMovieDetailNavigated()
         }
     })
         binding.movieList.adapter = adapter

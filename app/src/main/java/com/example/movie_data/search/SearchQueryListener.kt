@@ -4,8 +4,9 @@ import android.view.View
 import android.widget.EditText
 
 class SearchQueryListener(queryField : EditText, viewModel: SearchViewModel) : View.OnClickListener {
-    val queryTextField = queryField
-    val searchViewModel = viewModel
+    private val queryTextField = queryField
+    private val searchViewModel = viewModel
+
     override fun onClick(v: View?) {
         val queryText = queryTextField.text.toString()
         val clearedQuery = queryText.clearQuery()
